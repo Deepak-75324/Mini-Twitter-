@@ -1,0 +1,98 @@
+<%- include("include/header.ejs") %>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#1DA1F2,#0d8ae5);
+}
+
+.edit-container{
+    width: 500px;
+    margin: 70px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.edit-container h1{
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.edit-container .username{
+    color: #1DA1F2;
+    margin-bottom: 10px;
+}
+
+.edit-container .img{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.edit-container textarea{
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.edit-container button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    background:#1DA1F2;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.edit-container button:hover{
+    background:#0d8ae5;
+}
+
+.edit-container a{
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    color:#1DA1F2;
+    font-weight:bold;
+}
+</style>
+
+<div class="edit-container">
+
+<h1>Edit your Post</h1>
+
+<div class="twits">
+
+<h2 class="username">@<%= twit.username %></h2>
+
+<img class="img" src="<%= twit.img %>">
+
+<br><br>
+
+<form method="post" action="/twits/<%= twit.id %>?_method=PATCH">
+
+<label>Edit Content</label><br>
+
+<textarea rows="5" name="content"><%= twit.content %></textarea>
+
+<br>
+
+<button>Update Post</button>
+
+</form>
+
+<a href="/twits">Back to Home</a>
+
+</div>
+
+</div>
+
+<%- include("include/footer.ejs") %>

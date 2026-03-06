@@ -1,0 +1,77 @@
+<%- include("include/header.ejs") %>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#1DA1F2,#0d8ae5);
+}
+
+.post-container{
+    width: 600px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.post-id{
+    color: #555;
+    font-size: 18px;
+}
+
+.username{
+    color: #1DA1F2;
+    margin-top: 10px;
+}
+
+.content{
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+}
+
+.img{
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.back-btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1DA1F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.back-btn:hover{
+    background: #0d8ae5;
+}
+</style>
+
+<div class="post-container">
+
+<h1>POST DETAILS</h1>
+
+<h2 class="post-id">Post id: <%= twit.id %></h2>
+
+<div class="twits">
+    <h2 class="username">@<%=twit.username%></h2>
+
+    <h3 class="content"><%= twit.content %></h3>
+
+    <img class="img" src="<%=twit.img%>">
+
+    <br>
+
+    <a class="back-btn" href="/twits">Back to Home Page</a>
+</div>
+
+</div>
+
+<%- include("include/footer.ejs") %>

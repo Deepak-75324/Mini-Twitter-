@@ -1,0 +1,116 @@
+<%- include("include/header.ejs") %>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8fa;
+}
+
+.feed-container{
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: large;
+    color: #1DA1F2;
+}
+
+.tweet-card{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.username{
+    color:#1DA1F2;
+    margin-bottom:10px;
+}
+
+.content{
+    margin-bottom:10px;
+}
+
+.img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.img:hover{
+    transform:scale(1.03);
+}
+
+.action-box{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:15px;
+}
+
+.action-box a{
+    text-decoration:none;
+    padding:6px 12px;
+    border-radius:6px;
+    background:#1DA1F2;
+    color:white;
+    font-size:14px;
+}
+
+.action-box a:hover{
+    background:#0d8ae5;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#e60000;
+}
+</style>
+
+<div class="feed-container">
+
+<h2 class="title">Welcome to Mini Twitter</h2>
+
+<% for(twit of twits){ %>
+
+<div class="tweet-card">
+
+<h3 class="username">@<%=twit.username%></h3>
+
+<p class="content"><%= twit.content %></p>
+
+<img class="img" src="<%=twit.img%>">
+
+<div class="action-box">
+
+<a href="/twits/<%=twit.id%>">View</a>
+
+<a href="/twits/<%=twit.id%>/edit">Edit</a>
+
+<form method="post" action="/twits/<%=twit.id%>?_method=DELETE">
+<button class="delete-btn">Delete</button>
+</form>
+
+</div>
+
+</div>
+
+<% } %>
+
+</div>
+
+<%- include("include/footer.ejs") %>
