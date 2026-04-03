@@ -1,4 +1,4 @@
-# Mini Twitter Clone 🐦
+# Mini Twitter Clone 
 
 A simple **Twitter-like web application** built using **Node.js, Express.js, and EJS**.
 This project demonstrates **RESTful API concepts and CRUD operations** where users can create, view, edit, and delete tweets.
